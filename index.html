@@ -1,1 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- ↓↓↓ ВКЛАДКА БРАУЗЕРА. Поменяй на своё имя ↓↓↓ -->
+<title>Александр Боголюбов — QA-инженер</title>
+
+<style>
+  /* ===== Оформление. Цвета и шрифты тут, можно не трогать ===== */
+  :root{
+    --ink:#1b1e1c;
+    --muted:#5f6660;
+    --accent:#0f8a57;
+    --accent-soft:#e7f3ec;
+    --line:#e3e0d8;
+    --bg:#f7f6f2;
+    --card:#ffffff;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Segoe UI',-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:840px;margin:0 auto;padding:60px 28px 80px}
+
+  /* ===== Шапка ===== */
+  header{border-bottom:2px solid var(--ink);padding-bottom:30px;margin-bottom:46px}
+  .role{
+    display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);font-weight:600;
+    background:var(--accent-soft);padding:5px 12px;border-radius:6px;margin-bottom:18px;
+  }
+  h1{font-size:clamp(36px,6.5vw,56px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+  .tagline{font-size:18px;color:var(--muted);margin-top:16px;max-width:600px}
+
+  .contacts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:24px;font-size:15px}
+  .contacts a,.contacts span{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+  .contacts a:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ===== Секции ===== */
+  section{margin-bottom:46px}
+  h2{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin-bottom:22px;display:flex;align-items:center;gap:14px;
+  }
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* ===== Навыки ===== */
+  .skill-group{margin-bottom:18px}
+  .skill-group:last-child{margin-bottom:0}
+  .skill-label{font-weight:700;font-size:15px;margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    background:var(--card);border:1px solid var(--line);border-radius:100px;
+    padding:6px 15px;font-size:14px;
+  }
+
+  /* ===== Опыт / проект ===== */
+  .block{padding:24px 0;border-bottom:1px solid var(--line)}
+  .block:last-child{border-bottom:none}
+  .block-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:4px}
+  .block-title{font-size:19px;font-weight:700}
+  .block-date{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap}
+  .block-sub{font-size:15px;color:var(--accent);font-weight:600;margin-bottom:14px}
+  .block ul{list-style:none}
+  .block li{padding-left:22px;position:relative;margin-bottom:9px;color:#333}
+  .block li::before{
+    content:"\2713";position:absolute;left:0;top:0;color:var(--accent);font-weight:700;font-size:14px;
+  }
+
+  /* ===== Образование ===== */
+  .edu-status{
+    display:inline-block;font-family:var(--mono);font-size:12px;color:var(--accent);
+    background:var(--accent-soft);padding:3px 10px;border-radius:5px;margin-left:8px;
+  }
+
+  footer{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:13px;color:var(--muted);text-align:center}
+
+  @media(max-width:560px){
+    .wrap{padding:40px 20px 60px}
+  }
+
+  /* ===== Печать / PDF ===== */
+  @media print{
+    body{background:#fff}
+    .wrap{padding:0;max-width:100%}
+    .chip,.block,.skill-label{break-inside:avoid}
+    section{margin-bottom:28px}
+  }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <!-- ============ ШАПКА ============ -->
+  <header>
+    <span class="role">QA-инженер · Junior</span>
+
+    <!-- ↓ твоё имя ↓ -->
+    <h1>Александр Боголюбов</h1>
+
+    <!-- ↓ короткое описание о себе ↓ -->
+    <p class="tagline">
+      Начинающий тестировщик. Пишу тест-кейсы, баг-репорты и итоговые отчёты
+      о тестировании. Знаю SQL и основы работы с API. Ищу несовершенство мира
+      там, где обычный пользователь просто посмеётся.
+    </p>
+
+    <!-- ↓ КОНТАКТЫ — впиши свои ↓ -->
+    <div class="contacts">
+      <a href="mailto:твояпочта@mail.ru">твояпочта@mail.ru</a>
+      <a href="https://t.me/твой_ник">Telegram</a>
+      <span>+7 (XXX) XXX-XX-XX</span>
+      <span>Город</span>
+    </div>
+  </header>
+
+  <!-- ============ НАВЫКИ ============ -->
+  <section>
+    <h2>Навыки</h2>
+
+    <div class="skill-group">
+      <div class="skill-label">Тест-дизайн и документация</div>
+      <div class="chips">
+        <span class="chip">Тест-кейсы</span>
+        <span class="chip">Баг-репорты</span>
+        <span class="chip">Чек-листы</span>
+        <span class="chip">Итоговый отчёт о тестировании</span>
+        <span class="chip">Граничные значения</span>
+        <span class="chip">Edge-cases</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-label">Виды тестирования</div>
+      <div class="chips">
+        <span class="chip">Функциональное</span>
+        <span class="chip">Мобильное (эмуляция устройств)</span>
+        <span class="chip">Тестирование вёрстки</span>
+        <span class="chip">Поведение при разной скорости сети (2G / offline)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-label">SQL</div>
+      <div class="chips">
+        <span class="chip">SELECT / WHERE</span>
+        <span class="chip">INNER / LEFT / RIGHT JOIN</span>
+        <span class="chip">GROUP BY / HAVING</span>
+        <span class="chip">COUNT, SUM, AVG, MIN, MAX</span>
+        <span class="chip">Подзапросы</span>
+        <span class="chip">CTE (WITH)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-label">API и данные</div>
+      <div class="chips">
+        <span class="chip">Основы HTTP-запросов</span>
+        <span class="chip">Идемпотентность методов</span>
+        <span class="chip">Структура и валидация JSON</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-label">Инструменты</div>
+      <div class="chips">
+        <span class="chip">Chrome DevTools</span>
+        <span class="chip">Google Sheets</span>
+        <span class="chip">OneCompiler</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ПРАКТИЧЕСКИЙ ОПЫТ ============ -->
+  <section>
+    <h2>Практический опыт</h2>
+
+    <div class="block">
+      <div class="block-top">
+        <div class="block-title">Тестирование Steam — учебный проект</div>
+        <div class="block-date">2026</div>
+      </div>
+      <div class="block-sub">Мобильная и веб-версия · ручное тестирование</div>
+      <ul>
+        <li>Составил набор тест-кейсов по модулям: авторизация (вход, 2FA, неверный пароль, вход по QR-коду), магазин (поиск товара, работа при низкой скорости сети), корзина, друзья и чат.</li>
+        <li>Оформил баг-репорт по вёрстке (наложение меню при масштабе 500%): шаги воспроизведения, ожидаемый и фактический результат, severity и priority, окружение, вложение со скриншотом.</li>
+        <li>Подготовил итоговый отчёт о тестировании: тестовые сценарии, исполнительное резюме со статистикой и графиком, раздел рисков и рекомендаций. Покрытие требований — 100%.</li>
+        <li>Тестировал мобильный сценарий через эмуляцию устройства в Chrome DevTools (Samsung Galaxy S20 Ultra), включая поведение приложения при отсутствии интернета.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ОБУЧЕНИЕ ============ -->
+  <section>
+    <h2>Обучение</h2>
+    <div class="block">
+      <div class="block-top">
+        <div class="block-title">
+          Курс по тестированию ПО
+          <span class="edu-status">в процессе</span>
+        </div>
+        <div class="block-date">2026</div>
+      </div>
+      <div class="block-sub">Название школы / курса</div>
+      <ul>
+        <li>Тест-дизайн, работа с тест-кейсами и баг-репортами.</li>
+        <li>SQL: от базовых запросов до JOIN, агрегатных функций, подзапросов и CTE.</li>
+        <li>Основы клиент-серверного взаимодействия: HTTP, JSON, API.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ О СЕБЕ (по желанию, можно удалить) ============ -->
+  <section>
+    <h2>О себе</h2>
+    <p style="color:#333;max-width:620px">
+      Дотошный, докапываюсь до сути и не успокаиваюсь, пока не пойму, как
+      и почему что-то работает. Воспринимаю баги как загадку, а не как проблему.
+      Учусь в комфортном темпе, но стабильно и каждый день.
+    </p>
+  </section>
+
+  <footer>
+    Обновлено в 2026
+  </footer>
+
+</div>
+</body>
+</html>
