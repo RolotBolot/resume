@@ -10,7 +10,7 @@ https://hh.ru/resume/f0d95b30ff10b9872b0039ed1f424650705064
 
 ## Контакты
 - Telegram: @Skuffoslav(https://t.me/Skuffoslav)
-- Email: ваш@email.ru
+- Email: yaltesting@outlook.com
 - GitHub: yaymamb-testirovshik(https://github.com/RolotBolot)
 
 ## Навыки
