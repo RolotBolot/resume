@@ -3,6 +3,7 @@
 Тестировщик ПО. Завершаю обучение, ищу первую работу для получения коммерческого опыта.
 
 **🔗 Резюме онлайн:** https://RolotBolot.github.io/yaymamb-testirovshik/
+		      https://hh.ru/resume/f0d95b30ff10b9872b0039ed1f424650705064
 
 ---
 
