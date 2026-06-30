@@ -3,233 +3,338 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ↓↓↓ ВКЛАДКА БРАУЗЕРА. Поменяй на своё имя ↓↓↓ -->
-<title>Александр Боголюбов — QA-инженер</title>
-
+<title>Резюме — [Имя Фамилия] · QA Engineer</title>
+<meta name="description" content="Резюме junior QA Engineer (тестировщик ПО). Теория тестирования, SQL, API-тестирование в Postman, портфолио работ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* ===== Оформление. Цвета и шрифты тут, можно не трогать ===== */
   :root{
-    --ink:#1b1e1c;
-    --muted:#5f6660;
-    --accent:#0f8a57;
-    --accent-soft:#e7f3ec;
-    --line:#e3e0d8;
-    --bg:#f7f6f2;
-    --card:#ffffff;
-    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --ink:#0f172a;
+    --ink-soft:#475569;
+    --ink-mute:#94a3b8;
+    --bg:#ffffff;
+    --bg-alt:#f7f9fb;
+    --line:#e6ebf1;
+    --pass:#16a34a;
+    --pass-soft:#e7f6ec;
+    --pass-ink:#0f7a39;
+    --radius:14px;
+    --maxw:880px;
   }
-  *{margin:0;padding:0;box-sizing:border-box}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{
-    font-family:'Segoe UI',-apple-system,Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.6;
+    font-family:'Manrope',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:840px;margin:0 auto;padding:60px 28px 80px}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 
-  /* ===== Шапка ===== */
-  header{border-bottom:2px solid var(--ink);padding-bottom:30px;margin-bottom:46px}
-  .role{
-    display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--accent);font-weight:600;
-    background:var(--accent-soft);padding:5px 12px;border-radius:6px;margin-bottom:18px;
+  /* top bar */
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:saturate(160%) blur(8px);
+    border-bottom:1px solid var(--line);
   }
-  h1{font-size:clamp(36px,6.5vw,56px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
-  .tagline{font-size:18px;color:var(--muted);margin-top:16px;max-width:600px}
-
-  .contacts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:24px;font-size:15px}
-  .contacts a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);font-weight:600}
-.contacts span{color:var(--ink);border-bottom:1px solid var(--line)}
-  .contacts a:hover{border-color:var(--accent);color:var(--accent)}
-
-  /* ===== Секции ===== */
-  section{margin-bottom:46px}
-  h2{
-    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--muted);font-weight:600;margin-bottom:22px;display:flex;align-items:center;gap:14px;
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+  .brand{font-weight:800;letter-spacing:-.02em;font-size:15px}
+  .brand span{color:var(--ink-mute);font-weight:600}
+  .status{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;font-weight:600;color:var(--pass-ink);
+    background:var(--pass-soft);border:1px solid #cdeed7;
+    padding:5px 11px;border-radius:999px;white-space:nowrap;
   }
-  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 0 rgba(22,163,74,.5);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.45)}70%{box-shadow:0 0 0 7px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
 
-  /* ===== Навыки ===== */
-  .skill-group{margin-bottom:18px}
-  .skill-group:last-child{margin-bottom:0}
-  .skill-label{font-weight:700;font-size:15px;margin-bottom:8px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  /* hero */
+  .hero{padding:54px 0 30px}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px}
+  h1{font-size:clamp(34px,6vw,52px);line-height:1.04;letter-spacing:-.03em;font-weight:800}
+  .role{font-size:clamp(17px,3vw,21px);font-weight:600;color:var(--ink-soft);margin-top:10px}
+  .pitch{font-size:17px;color:var(--ink-soft);max-width:560px;margin-top:18px}
+
+  .contacts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
   .chip{
-    background:var(--card);border:1px solid var(--line);border-radius:100px;
-    padding:6px 15px;font-size:14px;
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:600;text-decoration:none;
+    padding:9px 14px;border:1px solid var(--line);border-radius:10px;
+    background:#fff;transition:border-color .15s,transform .15s,box-shadow .15s;
   }
+  .chip:hover{border-color:var(--pass);transform:translateY(-1px);box-shadow:0 4px 14px rgba(15,23,42,.06)}
+  .chip svg{width:16px;height:16px;flex:none}
+  .chip.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip.primary:hover{background:#1e293b}
 
-  /* ===== Опыт / проект ===== */
-  .block{padding:24px 0;border-bottom:1px solid var(--line)}
-  .block:last-child{border-bottom:none}
-  .block-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:4px}
-  .block-title{font-size:19px;font-weight:700}
-  .block-date{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap}
-  .block-sub{font-size:15px;color:var(--accent);font-weight:600;margin-bottom:14px}
-  .block ul{list-style:none}
-  .block li{padding-left:22px;position:relative;margin-bottom:9px;color:#333}
-  .block li::before{
-    content:"\2713";position:absolute;left:0;top:0;color:var(--accent);font-weight:700;font-size:14px;
+  /* test-run signature card */
+  .testrun{
+    margin-top:34px;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;background:var(--bg-alt);
+    font-family:'JetBrains Mono',monospace;font-size:13.5px;
   }
-
-  /* ===== Образование ===== */
-  .edu-status{
-    display:inline-block;font-family:var(--mono);font-size:12px;color:var(--accent);
-    background:var(--accent-soft);padding:3px 10px;border-radius:5px;margin-left:8px;
+  .testrun .head{
+    display:flex;align-items:center;gap:9px;
+    padding:11px 16px;border-bottom:1px solid var(--line);
+    background:#fff;color:var(--ink-soft);font-weight:500;
   }
+  .testrun .head b{color:var(--ink)}
+  .traf{display:flex;gap:6px;margin-right:4px}
+  .traf i{width:11px;height:11px;border-radius:50%;display:block}
+  .traf i:nth-child(1){background:#f87171}.traf i:nth-child(2){background:#fbbf24}.traf i:nth-child(3){background:#34d399}
+  .testrun .body{padding:14px 16px 16px}
+  .trow{display:flex;align-items:baseline;gap:10px;padding:3px 0;color:var(--ink-soft)}
+  .trow .ok{color:var(--pass);font-weight:700}
+  .trow .lbl{color:var(--ink)}
+  .trow .lead{flex:1;border-bottom:1px dotted #cbd5e1;transform:translateY(-3px)}
+  .trow .res{color:var(--pass-ink);font-weight:700}
+  .tsum{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);color:var(--ink-mute)}
+  .tsum b{color:var(--pass-ink)}
 
-  footer{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);
-    font-family:var(--mono);font-size:13px;color:var(--muted);text-align:center}
+  /* sections */
+  section{padding:40px 0;border-top:1px solid var(--line)}
+  .sec-label{font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;color:var(--ink-mute);margin-bottom:8px}
+  h2{font-size:26px;letter-spacing:-.02em;font-weight:800;margin-bottom:20px}
+  .lead-p{font-size:16.5px;color:var(--ink-soft);max-width:640px}
+  .lead-p + .lead-p{margin-top:14px}
 
-  @media(max-width:560px){
-    .wrap{padding:40px 20px 60px}
+  /* skills */
+  .skillgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .skillblock h3{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .skillblock h3 .ico{color:var(--pass)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{
+    font-size:13.5px;font-weight:600;color:var(--ink);
+    background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 11px;
   }
+  .tag.pass::before{content:"✓ ";color:var(--pass);font-weight:800}
 
-  /* ===== Печать / PDF ===== */
+  /* portfolio */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{
+    display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;background:#fff;transition:border-color .15s,transform .15s,box-shadow .15s;
+  }
+  .card:hover{border-color:var(--pass);transform:translateY(-2px);box-shadow:0 8px 22px rgba(15,23,42,.07)}
+  .card .ct{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px}
+  .card h3{font-size:16px;font-weight:700}
+  .card .arr{color:var(--ink-mute);transition:transform .15s,color .15s}
+  .card:hover .arr{color:var(--pass);transform:translate(2px,-2px)}
+  .card p{font-size:14px;color:var(--ink-soft)}
+  .card .kind{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-mute);margin-top:10px;display:block}
+
+  /* education / timeline */
+  .edu{display:flex;gap:16px;padding:14px 0}
+  .edu .yr{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-mute);min-width:96px;padding-top:2px}
+  .edu .h{font-weight:700;font-size:15.5px}
+  .edu .d{font-size:14px;color:var(--ink-soft);margin-top:2px}
+
+  /* footer cta */
+  .cta{
+    margin:8px 0 0;border:1px solid var(--line);border-radius:18px;
+    background:var(--bg-alt);padding:34px 28px;text-align:center;
+  }
+  .cta h2{margin-bottom:8px}
+  .cta p{color:var(--ink-soft);font-size:16px;margin-bottom:22px}
+  .cta .contacts{justify-content:center}
+  footer{padding:30px 0 50px;color:var(--ink-mute);font-size:13px;text-align:center}
+
+  @media (max-width:680px){
+    .skillgrid,.cards{grid-template-columns:1fr}
+    .topbar .status{display:none}
+    .hero{padding:38px 0 24px}
+    .edu{flex-direction:column;gap:2px}
+    .edu .yr{min-width:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+
+  /* печать в PDF */
   @media print{
-    body{background:#fff}
-    .wrap{padding:0;max-width:100%}
-    .chip,.block,.skill-label{break-inside:avoid}
-    section{margin-bottom:28px}
+    .topbar{display:none}
+    body{font-size:12px}
+    section,.hero{padding:14px 0;border-color:#ddd}
+    .card,.chip{box-shadow:none}
+    a[href^="http"]::after{content:" (" attr(href) ")";font-size:9px;color:#666}
+    .testrun .head{background:#fff}
   }
 </style>
 </head>
-
 <body>
-<div class="wrap">
 
-  <!-- ============ ШАПКА ============ -->
-  <header>
-    <span class="role">QA-инженер · Junior</span>
-
-    <!-- ↓ твоё имя ↓ -->
-    <h1>Александр Боголюбов</h1>
-
-    <!-- ↓ короткое описание о себе ↓ -->
-    <p class="tagline">
-      Начинающий тестировщик. Пишу тест-кейсы, баг-репорты и итоговые отчёты
-      о тестировании. Знаю SQL и основы работы с API. Ищу несовершенство мира
-      там, где обычный пользователь просто посмеётся.
-    </p>
-
-    <!-- ↓ КОНТАКТЫ — впиши свои ↓ -->
-    <div class="contacts">
-      <a href="mailto:rolotbolot@mail.ru">rolotbolot@mail.ru</a>
-      <a href="https://t.me/Skuffoslav">Telegram</a>
-      <span>+7 9160620694</span>
-      <span>Москва</span>
-    </div>
-  </header>
-
-  <!-- ============ НАВЫКИ ============ -->
-  <section>
-    <h2>Навыки</h2>
-
-    <div class="skill-group">
-      <div class="skill-label">Тест-дизайн и документация</div>
-      <div class="chips">
-        <span class="chip">Тест-кейсы</span>
-        <span class="chip">Баг-репорты</span>
-        <span class="chip">Чек-листы</span>
-        <span class="chip">Итоговый отчёт о тестировании</span>
-        <span class="chip">Граничные значения</span>
-        <span class="chip">Edge-cases</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-label">Виды тестирования</div>
-      <div class="chips">
-        <span class="chip">Функциональное</span>
-        <span class="chip">Мобильное (эмуляция устройств)</span>
-        <span class="chip">Тестирование вёрстки</span>
-        <span class="chip">Поведение при разной скорости сети (2G / offline)</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-label">SQL</div>
-      <div class="chips">
-        <span class="chip">SELECT / WHERE</span>
-        <span class="chip">INNER / LEFT / RIGHT JOIN</span>
-        <span class="chip">GROUP BY / HAVING</span>
-        <span class="chip">COUNT, SUM, AVG, MIN, MAX</span>
-        <span class="chip">Подзапросы</span>
-        <span class="chip">CTE (WITH)</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-label">API и данные</div>
-      <div class="chips">
-        <span class="chip">Основы HTTP-запросов</span>
-        <span class="chip">Идемпотентность методов</span>
-        <span class="chip">Структура и валидация JSON</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-label">Инструменты</div>
-      <div class="chips">
-        <span class="chip">Chrome DevTools</span>
-        <span class="chip">Google Sheets</span>
-        <span class="chip">OneCompiler</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ПРАКТИЧЕСКИЙ ОПЫТ ============ -->
-  <section>
-    <h2>Практический опыт</h2>
-
-    <div class="block">
-      <div class="block-top">
-        <div class="block-title">Тестирование Steam — учебный проект</div>
-        <div class="block-date">2026</div>
-      </div>
-      <div class="block-sub">Мобильная и веб-версия · ручное тестирование</div>
-      <ul>
-        <li>Составил набор тест-кейсов по модулям: авторизация (вход, 2FA, неверный пароль, вход по QR-коду), магазин (поиск товара, работа при низкой скорости сети), корзина, друзья и чат.</li>
-        <li>Оформил баг-репорт по вёрстке (наложение меню при масштабе 500%): шаги воспроизведения, ожидаемый и фактический результат, severity и priority, окружение, вложение со скриншотом.</li>
-        <li>Подготовил итоговый отчёт о тестировании: тестовые сценарии, исполнительное резюме со статистикой и графиком, раздел рисков и рекомендаций. Покрытие требований — 100%.</li>
-        <li>Тестировал мобильный сценарий через эмуляцию устройства в Chrome DevTools (Samsung Galaxy S20 Ultra), включая поведение приложения при отсутствии интернета.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ ОБУЧЕНИЕ ============ -->
-  <section>
-    <h2>Обучение</h2>
-    <div class="block">
-      <div class="block-top">
-        <div class="block-title">
-          Курс по тестированию ПО
-          <span class="edu-status">в процессе</span>
-        </div>
-        <div class="block-date">2026</div>
-      </div>
-      <div class="block-sub">Название школы / курса</div>
-      <ul>
-        <li>Тест-дизайн, работа с тест-кейсами и баг-репортами.</li>
-        <li>SQL: от базовых запросов до JOIN, агрегатных функций, подзапросов и CTE.</li>
-        <li>Основы клиент-серверного взаимодействия: HTTP, JSON, API.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ О СЕБЕ (по желанию, можно удалить) ============ -->
-  <section>
-    <h2>О себе</h2>
-    <p style="color:#333;max-width:620px">
-     Хочу серьезно поменять сферу своей детельности, по этому пробую вкатится в тестирование.
-    </p>
-  </section>
-
-  <footer>
-    Обновлено в 2026
-  </footer>
-
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"> Боголюбов Александр <span>/ QA</span></div>
+    <span class="status"><span class="dot"></span> Открыт к предложениям</span>
+  </div>
 </div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Резюме · Тестировщик ПО</div>
+    <h1>[Имя Фамилия]</h1>
+    <div class="role">Junior QA Engineer · Ручное и API-тестирование</div>
+    <p class="pitch">Завершаю обучение тестированию ПО и ищу первую работу, чтобы расти в команде. Знаю теорию, умею писать тест-кейсы и баг-репорты, работаю с SQL и Postman. Готов к стажировке и быстро учусь.</p>
+
+    <div class="contacts">
+      <a class="chip primary" href="https://t.me/Skuffoslav>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 16.6 9.6 13 16 7.2c.3-.3-.06-.4-.45-.18L7.7 12l-3.4-1.07c-.74-.23-.75-.74.16-1.1l13.3-5.13c.6-.23 1.18.15.95 1.1l-2.27 10.7c-.16.74-.6.92-1.22.57l-3.34-2.46-1.6 1.55c-.18.18-.33.33-.66.33Z"/></svg>
+        Telegram
+      </a>
+      <a class="chip" href="mailto:yaltesting@outlook.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        ваш@email.ru
+      </a>
+      <a class="chip" href="https://github.com/RolotBolot">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+        GitHub
+      </a>
+    </div>
+
+    <div class="testrun" aria-label="Готовность к работе">
+      <div class="head"><span class="traf"><i></i><i></i><i></i></span> <b>test run:</b> готовность к работе</div>
+      <div class="body">
+        <div class="trow"><span class="ok">✓</span><span class="lbl">Теория тестирования</span><span class="lead"></span><span class="res">PASS</span></div>
+        <div class="trow"><span class="ok">✓</span><span class="lbl">SQL — выборки, JOIN, агрегаты</span><span class="lead"></span><span class="res">PASS</span></div>
+        <div class="trow"><span class="ok">✓</span><span class="lbl">API-тестирование (Postman)</span><span class="lead"></span><span class="res">PASS</span></div>
+        <div class="trow"><span class="ok">✓</span><span class="lbl">Баг-репорты и тест-кейсы</span><span class="lead"></span><span class="res">PASS</span></div>
+        <div class="trow"><span class="ok">✓</span><span class="lbl">Git, DevTools, баг-трекер</span><span class="lead"></span><span class="res">PASS</span></div>
+        <div class="tsum">— <b>5 passed</b> · 0 failed · готов к стажировке и junior-позиции</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label">// о себе</div>
+    <h2>Кто я</h2>
+    <p class="lead-p">Прохожу обучение на тестировщика ПО и параллельно собираю портфолио на реальных задачах. Мне нравится разбираться, как устроен продукт, и находить, где он ломается — а потом понятно описывать это, чтобы разработчик мог быстро всё починить.</p>
+    <p class="lead-p">Спокойно отношусь к рутине и внимателен к деталям. Не боюсь задавать вопросы и доводить баг до конца. Сейчас моя цель — получить первый коммерческий опыт и закрепить навыки в боевых условиях.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label">// навыки</div>
+    <h2>Что умею</h2>
+    <div class="skillgrid">
+      <div class="skillblock">
+        <h3><span class="ico">◆</span> Тестирование</h3>
+        <div class="tags">
+          <span class="tag pass">Теория тестирования</span>
+          <span class="tag pass">Тест-кейсы</span>
+          <span class="tag pass">Чек-листы</span>
+          <span class="tag pass">Баг-репорты</span>
+          <span class="tag pass">Тест-дизайн</span>
+          <span class="tag pass">Функц. тестирование</span>
+          <span class="tag pass">Регрессионное</span>
+          <span class="tag pass">Smoke / Sanity</span>
+        </div>
+      </div>
+      <div class="skillblock">
+        <h3><span class="ico">◆</span> Инструменты</h3>
+        <div class="tags">
+          <span class="tag pass">Postman</span>
+          <span class="tag pass">SQL</span>
+          <span class="tag pass">DevTools</span>
+          <span class="tag pass">Git / GitHub</span>
+          <span class="tag pass">Баг-трекер (Jira/YouTrack)</span>
+          <span class="tag pass">REST API</span>
+          <span class="tag pass">HTTP / JSON</span>
+          <span class="tag pass">Charles / Fiddler</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sec-label">// работы</div>
+    <h2>Портфолио</h2>
+    <div class="cards">
+      <a class="card" href="#">
+        <div class="ct"><h3>Тест-кейсы</h3><span class="arr">↗</span></div>
+        <p>Набор тест-кейсов на веб-приложение: позитивные и негативные сценарии, шаги, ожидаемый и фактический результат.</p>
+        <span class="kind">test-cases · google sheets / md</span>
+      </a>
+      <a class="card" href="#">
+        <div class="ct"><h3>Баг-репорты</h3><span class="arr">↗</span></div>
+        <p>Примеры оформленных баг-репортов: шаги воспроизведения, severity/priority, окружение, скриншоты.</p>
+        <span class="kind">bug-reports · md / pdf</span>
+      </a>
+      <a class="card" href="https://github.com/RolotBolot/yaymamb-testirovshik/blob/main/portfolio-sql.sql">
+        <div class="ct"><h3>SQL-запросы</h3><span class="arr">↗</span></div>
+        <p>Запросы для проверки данных: выборки с фильтрами, JOIN нескольких таблиц, группировки и поиск аномалий в данных.</p>
+        <span class="kind">portfolio-sql.sql</span>
+      </a>
+      <a class="card" href="https://github.com/RolotBolot/yaymamb-testirovshik/blob/main/restful-booker.postman_collection.json">
+        <div class="ct"><h3>Postman-коллекция</h3><span class="arr">↗</span></div>
+        <p>Коллекция API-тестов: авторизация, CRUD, проверки статус-кодов, тела ответа и времени отклика через тесты Postman.</p>
+        <span class="kind">postman_collection.json</span>
+      </a>
+      <a class="card" href="#">
+        <div class="ct"><h3>Чек-лист</h3><span class="arr">↗</span></div>
+        <p>Чек-лист на типовую фичу (форма авторизации / регистрации): что проверить по полям, валидации и безопасности.</p>
+        <span class="kind">checklist · md</span>
+      </a>
+      <a class="card" href="#">
+        <div class="ct"><h3>Тест-план / мини-проект</h3><span class="arr">↗</span></div>
+        <p>Небольшой учебный проект: тест-план, прогон, найденные дефекты и краткий отчёт о тестировании.</p>
+        <span class="kind">test-plan · md</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-label">// обучение</div>
+    <h2>Образование и курсы</h2>
+    <div class="edu">
+      <div class="yr">2025 — 2026</div>
+      <div>
+        <div class="h">Курс «Тестировщик ПО» — АНО ДПО МУЦ ИТ ПБ </div>
+        <div class="d">Теория тестирования, тест-дизайн, работа с API, SQL, баг-трекинг. Учебные проекты с реальными прогонами.</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="yr">год — год</div>
+      <div>
+        <div class="h">[Учебное заведение / специальность]</div>
+        <div class="d">[Кратко, если относится к делу. Если нет — можно убрать этот блок.]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Готов выйти на стажировку</h2>
+      <p>Открыт к junior-позициям и стажировкам. Отвечаю быстро — пишите в Telegram.</p>
+      <div class="contacts">
+        <a class="chip primary" href="https://t.me/ВАШ_НИК">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 16.6 9.6 13 16 7.2c.3-.3-.06-.4-.45-.18L7.7 12l-3.4-1.07c-.74-.23-.75-.74.16-1.1l13.3-5.13c.6-.23 1.18.15.95 1.1l-2.27 10.7c-.16.74-.6.92-1.22.57l-3.34-2.46-1.6 1.55c-.18.18-.33.33-.66.33Z"/></svg>
+          Написать в Telegram
+        </a>
+        <a class="chip" href="mailto:ваш@email.ru">Email</a>
+        <a class="chip" href="https://github.com/ВАШ_ГИТХАБ">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="y"></span> [Имя Фамилия] · Резюме собрано на GitHub Pages</div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
